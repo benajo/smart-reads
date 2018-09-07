@@ -44,9 +44,10 @@ public class SmartReadsControllerTest {
     ObjectMapper mapper = new ObjectMapper();
     String expectedJson = mapper.writeValueAsString(smartMeterDetailDTO);
 
-    when(smartMeterDetailService.getSmartMeterDetail(accountNumber)).thenReturn(smartMeterDetailDTO);
+    when(smartMeterDetailService.getSmartMeterDetail(accountNumber))
+        .thenReturn(smartMeterDetailDTO);
 
-    this.mockMvc.perform(get("/api/smart/reads/1"))
+    mockMvc.perform(get("/api/smart/reads/1"))
         .andDo(print())
         .andExpect(status().isOk())
         .andExpect(content().string(containsString(expectedJson)));
@@ -56,7 +57,7 @@ public class SmartReadsControllerTest {
   public void getSmartMeterReads404() throws Exception {
     when(smartMeterDetailService.getSmartMeterDetail(1L)).thenReturn(null);
 
-    this.mockMvc.perform(get("/api/smart/reads/1"))
+    mockMvc.perform(get("/api/smart/reads/1"))
         .andDo(print())
         .andExpect(status().is4xxClientError());
   }

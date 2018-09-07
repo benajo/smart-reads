@@ -28,7 +28,8 @@ public class SmartReadsController {
    */
   @RequestMapping(value = "smart/reads/{accountNumber}", method = RequestMethod.GET)
   @ResponseBody
-  public ResponseEntity<SmartMeterDetailDTO> getSmartMeterReads(@PathVariable("accountNumber") Long accountNumber) {
+  public ResponseEntity<SmartMeterDetailDTO> getSmartMeterReads(
+      @PathVariable("accountNumber") Long accountNumber) {
     SmartMeterDetailDTO smartMeterDetailDTO = service.getSmartMeterDetail(accountNumber);
 
     if (null != smartMeterDetailDTO) {

@@ -1,6 +1,6 @@
 # Smart Reads Application
 
-## Running the application
+## Run the application
 
 ```
 mvn clean install

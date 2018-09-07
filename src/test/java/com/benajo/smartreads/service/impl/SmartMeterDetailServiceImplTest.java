@@ -1,5 +1,7 @@
 package com.benajo.smartreads.service.impl;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 import static org.mockito.Mockito.when;
 
 import com.benajo.smartreads.jpa.SmartMeterDetailRepository;
@@ -37,9 +39,11 @@ public class SmartMeterDetailServiceImplTest {
     expectedSmartMeterDetailDTO.setElecSmartRead(elecSmartRead);
     expectedSmartMeterDetailDTO.setGasSmartRead(gasSmartRead);
 
-    when(smartMeterDetailRepository.findByAccountNumber(accountNumber)).thenReturn(smartMeterDetail);
+    when(smartMeterDetailRepository.findByAccountNumber(accountNumber))
+        .thenReturn(smartMeterDetail);
 
-    Assert.assertEquals(expectedSmartMeterDetailDTO, smartMeterDetailService.getSmartMeterDetail(accountNumber));
+    assertEquals(expectedSmartMeterDetailDTO,
+        smartMeterDetailService.getSmartMeterDetail(accountNumber));
   }
 
   @Test
@@ -49,6 +53,6 @@ public class SmartMeterDetailServiceImplTest {
 
     when(smartMeterDetailRepository.findByAccountNumber(accountNumber)).thenReturn(null);
 
-    Assert.assertNull(smartMeterDetailService.getSmartMeterDetail(accountNumber));
+    assertNull(smartMeterDetailService.getSmartMeterDetail(accountNumber));
   }
 }

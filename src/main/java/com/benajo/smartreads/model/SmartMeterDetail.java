@@ -9,7 +9,7 @@ import javax.persistence.Id;
 public class SmartMeterDetail {
 
   @Id
-  @GeneratedValue(strategy= GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.AUTO)
   private Long accountNumber;
   private Long gasId;
   private Long elecId;

@@ -25,7 +25,8 @@ public class SmartMeterDetailServiceImpl implements SmartMeterDetailService {
   public SmartMeterDetailDTO getSmartMeterDetail(Long accountNumber) {
 
     SmartMeterDetailDTO smartMeterDetailDTO = new SmartMeterDetailDTO();
-    SmartMeterDetail smartMeterDetail = smartMeterDetailRepository.findByAccountNumber(accountNumber);
+    SmartMeterDetail smartMeterDetail = smartMeterDetailRepository
+        .findByAccountNumber(accountNumber);
 
     if (null != smartMeterDetail) {
       BeanUtils.copyProperties(smartMeterDetail, smartMeterDetailDTO);
